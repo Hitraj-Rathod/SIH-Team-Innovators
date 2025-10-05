@@ -64,10 +64,11 @@ export default function LiveCrowdPage() {
 
   return (
     <div className="bg-gray-100 p-4">
-        <h1 className="text-4xl font-bold text-indigo-700 mb-6 pt-10 text-center">
+      <Navbar></Navbar>
+        <h1 className="text-3xl font-bold text-indigo-700 mb-6 pt-5 text-center">
      Live Temple Crowd Dashboard
       </h1>
-        <Navbar></Navbar>
+        
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
       
 

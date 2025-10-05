@@ -31,8 +31,7 @@ export default function LoginPage() {
         <p className="text-center text-gray-500 mb-6">
           तीर्थसुरक्षा - सुरक्षित दर्शन
         </p>
-
-        {/* Role Switcher */}
+ 
         <div className="flex justify-between bg-gray-100 p-1 rounded-lg mb-6">
           <button
             onClick={() => setRole("devotee")}
@@ -56,7 +55,7 @@ export default function LoginPage() {
           </button>
         </div>
 
-        {/* Login Form */}
+     
         <form onSubmit={handleLogin}>
           <label className="block text-gray-700 font-medium mb-2">
             {role === "devotee" ? "Email / Mobile Number" : "Official Email ID"}
@@ -88,7 +87,7 @@ export default function LoginPage() {
             placeholder="Enter your password"
           />
 
-          {/* Role-specific Notes */}
+      
           {role === "authority" ? (
             <p className="text-xs text-gray-500 mb-3">
                Only authorized temple officials or control room staff can log in.
@@ -113,7 +112,7 @@ export default function LoginPage() {
           )}
         </form>
 
-        {/* Quick Links */}
+     
         <div className="text-center mt-6">
           <Link href="/" className="text-blue-600 hover:underline block">
             ← Back to Home

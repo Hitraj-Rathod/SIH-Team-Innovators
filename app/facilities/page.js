@@ -4,10 +4,11 @@ import Navbar from "@/components/Navbar";
 
 export default function FacilitiesPage() {
   return (
-    <div> <h1 className="text-4xl pt-10 font-bold text-indigo-700 mb-6">
+    <div className="bg-gray-100 p-4"><Navbar></Navbar>
+    <h1 className="text-3xl pt-5 text-center font-bold text-indigo-700 mb-6">
         Temple Facilities & Services
       </h1>
-    <Navbar></Navbar>
+    
     
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
       

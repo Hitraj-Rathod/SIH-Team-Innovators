@@ -20,11 +20,13 @@ export default function FeedbackPage() {
     setForm({ name: "", rating: "", message: "" });
   };
 
-  return (<div>
-    <h1 className="text-4xl text-center pt-10 font-bold text-indigo-700 mb-6">
+  return (
+  <div className="bg-gray-100 p-4">
+    <Navbar></Navbar>
+    <h1 className="text-3xl text-center pt-5 font-bold text-indigo-700 mb-6">
         Feedback & Suggestions
       </h1>
-      <Navbar></Navbar> 
+       
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
       
 

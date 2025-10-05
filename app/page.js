@@ -19,36 +19,12 @@ export default function Home() {
 
   return (
     <main className={`min-h-screen bg-gray-100 p-4 ${inter.className}`}>
-      {/* ===== Header Section ===== */}
-      <header className="flex justify-between items-center pt-6 mb-6">
-        <div className="flex items-center space-x-4">
-          <img src="/logo.png" alt="Govt Logo" className="h-20" />
-          <div>
-            <h1 className="text-4xl font-bold text-orange-600">
-              TirthSuraksha – Safe Darshan
-            </h1>
-            <h3 className="text-black text-xl pt-1">
-              तीर्थसुरक्षा - सुरक्षित दर्शन
-            </h3>
-            <p className="text-sm text-gray-600">
-              Government of Gujarat | Dept. of Science & Technology
-            </p>
-          </div>
-        </div>
-
-        {/* Login Button */}
-        <Link
-          href="/login"
-          className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700"
-        >
-          Login / Admin
-        </Link>
-      </header>
+      
 
       <Navbar />
 
       {/* ===== Alert Banner ===== */}
-      <div className="bg-yellow-100 text-yellow-800 p-3 mb-4 text-center rounded-lg shadow">
+      <div className="bg-yellow-100 text-yellow-800 p-3 mb-4 text-center rounded-lg shadow ">
         <p className="text-red-600 font-bold text-lg">⚠ ALERT</p>
         <p>Online booking mandatory for VIP Darshan | Follow crowd guidelines</p>
       </div>

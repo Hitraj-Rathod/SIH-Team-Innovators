@@ -11,10 +11,12 @@ export default function TempleSurveillance() {
   ];
 
   return (
-    <div><h1 className="text-4xl mb-3 pt-10 text-center font-bold text-orange-600">
+    <div className="bg-gray-100 p-4">
+      <Navbar></Navbar>
+    <h1 className="text-3xl mb-3 pt-5 text-center font-bold text-orange-600">
          Temple Surveillance
         </h1>
-    <Navbar></Navbar>
+    
     <main className="min-h-screen bg-gray-100 p-6">
      
        <p className="border-2 text-center rounded-2xl bg-red-500">! This is only for Temple Athorities !</p>
