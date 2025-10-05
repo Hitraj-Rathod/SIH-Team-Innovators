@@ -1,103 +1,169 @@
-import Image from "next/image";
+import { Inter } from "next/font/google";
+import Navbar from "../components/Navbar";
+import Link from "next/link";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const stats = {
+    devotees: 15211,
+    waitTime: "45 min",
+    footfall: 48762,
+    crowdZone: "Gate 3 Full, Gate 2 Moderate, Gate 1 Open",
+  };
+  const updates = [
+    "10:45 AM - Gate 3 opened for crowd management",
+    "11:00 AM - VIP Darshan slots available for booking",
+  ];
+  const weather = { temp: 32, condition: "Partly Cloudy" };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <main className={`min-h-screen bg-gray-100 p-4 ${inter.className}`}>
+      {/* ===== Header Section ===== */}
+      <header className="flex justify-between items-center pt-6 mb-6">
+        <div className="flex items-center space-x-4">
+          <img src="/logo.png" alt="Govt Logo" className="h-20" />
+          <div>
+            <h1 className="text-4xl font-bold text-orange-600">
+              TirthSuraksha – Safe Darshan
+            </h1>
+            <h3 className="text-black text-xl pt-1">
+              तीर्थसुरक्षा - सुरक्षित दर्शन
+            </h3>
+            <p className="text-sm text-gray-600">
+              Government of Gujarat | Dept. of Science & Technology
+            </p>
+          </div>
+        </div>
+
+        {/* Login Button */}
+        <Link
+          href="/login"
+          className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700"
+        >
+          Login / Admin
+        </Link>
+      </header>
+
+      <Navbar />
+
+      {/* ===== Alert Banner ===== */}
+      <div className="bg-yellow-100 text-yellow-800 p-3 mb-4 text-center rounded-lg shadow">
+        <p className="text-red-600 font-bold text-lg">⚠ ALERT</p>
+        <p>Online booking mandatory for VIP Darshan | Follow crowd guidelines</p>
+      </div>
+
+      {/* ===== Temple Selector ===== */}
+      <div className="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 className="text-lg font-semibold mb-2 text-black">
+          🛕 Select Temple Location
+        </h2>
+        <select className="w-full border p-2 rounded">
+          <option>Somnath Temple</option>
+          <option>Dwarkadhish Temple</option>
+          <option>Ambaji Temple</option>
+          <option>Pavagadh Temple</option>
+        </select>
+        <p className="text-sm text-gray-500 mt-2">
+          Temple data will update automatically based on your selection.
+        </p>
+      </div>
+
+      {/* ===== Dashboard Section ===== */}
+      <div className="bg-white p-4 rounded-lg shadow text-black mb-6">
+        <h2 className="text-xl font-semibold mb-3 text-black">
+          📊 Live Crowd Dashboard
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border p-2 rounded">
+          <div className="text-center">
+            <p className="font-bold">Current Devotees</p>
+            <p>{stats.devotees.toLocaleString()}</p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold">Average Wait Time</p>
+            <p>{stats.waitTime}</p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold">Today's Footfall</p>
+            <p>{stats.footfall.toLocaleString()}</p>
+          </div>
+          <div className="text-center">
+            <p className="font-bold">Crowd Zone Status</p>
+            <p>{stats.crowdZone}</p>
+          </div>
+        </div>
+
+        {/* Live Updates */}
+        <div className="mt-4 bg-orange-500 text-white p-3 rounded-lg">
+          <h3 className="font-bold text-lg">🔴 Live Updates</h3>
+          <ul className="list-disc ml-5">
+            {updates.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Weather */}
+        <div className="mt-4 bg-yellow-500 text-black p-3 rounded-lg">
+          <h3 className="font-bold">🌤 Weather Today</h3>
+          <p>
+            {weather.temp}°C | {weather.condition}
+          </p>
+        </div>
+      </div>
+
+      {/* ===== Important Quick Links ===== */}
+      <div className="bg-white p-4 rounded-lg shadow mb-6">
+        <h2 className="text-lg font-semibold text-black mb-2">
+          🔗 Useful Quick Links
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <Link
+            href="/facilities"
+            className="p-3 bg-green-100 hover:bg-green-200 rounded-lg text-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            🏛 Temple Facilities
+          </Link>
+          <Link
+            href="/crowd"
+            className="p-3 bg-blue-100 hover:bg-blue-200 rounded-lg text-center"
           >
-            Read our docs
+            👥 Live Crowd Zones
+          </Link>
+          <Link
+            href="/emergency"
+            className="p-3 bg-red-100 hover:bg-red-200 rounded-lg text-center"
+          >
+            🚨 Emergency Contact
+          </Link>
+          <Link
+            href="/feedback"
+            className="p-3 bg-yellow-100 hover:bg-yellow-200 rounded-lg text-center"
+          >
+            💬 Feedback
+          </Link>
+          <a
+            href="https://gujaratindia.gov.in"
+            target="_blank"
+            className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-center"
+          >
+            🌐 Official Gujarat Portal
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* ===== Emergency Button (Floating) ===== */}
+      <Link
+        href="/emergency"
+        className="fixed bottom-6 right-6 bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700"
+      >
+        🚨 Emergency Help
+      </Link>
+
+      {/* ===== Footer ===== */}
+      <footer className="mt-10 text-center text-gray-600 text-sm pb-6">
+        © 2025 Govt. of Gujarat | TirthSuraksha – Smart Pilgrimage Management
       </footer>
-    </div>
+    </main>
   );
 }
