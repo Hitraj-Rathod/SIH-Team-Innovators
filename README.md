@@ -8,8 +8,8 @@
 **Team Name:** Team Innovators  
 **Team ID:** 114011 
 **Category:** Software  
-**Theme:** Heritage & Culture 
-**Leader Name :**Hitraj Sinh 
+**Theme:** Heritage & Culture  
+**Leader Name:** Hitraj Sinh 
 
 ---
 
