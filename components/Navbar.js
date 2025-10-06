@@ -43,13 +43,13 @@ const Navbar = () => {
         </Link>
       </header>
     <nav className="bg-blue-900 text-white p-3 mb-4 flex justify-around gap-4 relative z-50">
-      <a href="/" className="hover:text-gray-300">Home</a>
-      <a href="/crowd" className="hover:text-gray-300">Crowd Status</a>
-      <a href="/parking-info" className="hover:text-gray-300">Parking Info</a>
-      <a href="/facilities" className="hover:text-gray-300">Facilities</a>
-      <a href="/booking" className="hover:text-gray-300">E-Darshan Booking</a>
-      <a href="/emergency" className="hover:text-gray-300">Emergency</a>
-      <a href="/feedback" className="hover:text-gray-300">Feedback</a>
+      <Link href="/" className="hover:text-gray-300">Home</Link>
+      <Link href="/crowd" className="hover:text-gray-300">Crowd Status</Link>
+      <Link href="/parking-info" className="hover:text-gray-300">Parking Info</Link>
+      <Link href="/facilities" className="hover:text-gray-300">Facilities</Link>
+      <Link href="/booking" className="hover:text-gray-300">E-Darshan Booking</Link>
+      <Link href="/emergency" className="hover:text-gray-300">Emergency</Link>
+      <Link href="/feedback" className="hover:text-gray-300">Feedback</Link>
 
       {/* Dropdown for Surveillance */}
       <div
@@ -67,18 +67,18 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <a
+            <Link
               href="/surveillance/temple"
               className="block px-4 py-2 hover:bg-gray-200"
             >
             Temple
-            </a>
-            <a
+            </Link>
+            <Link
               href="/surveillance/parking"
               className="block px-4 py-2 hover:bg-gray-200"
             >
             Parking
-            </a>
+            </Link>
           </div>
         )}
       </div>

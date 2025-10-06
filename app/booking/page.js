@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { QRCodeCanvas } from 'qrcode.react';
+import { QRCodeCanvas } from "qrcode.react";
 import Navbar from "@/components/Navbar";
 
 export default function EDarshanForm() {
