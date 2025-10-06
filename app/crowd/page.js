@@ -22,23 +22,25 @@ export default function LiveCrowdPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       const randomVisitors = Math.floor(800 + Math.random() * 600);
-      const levels = ["Low", "Moderate", "High"];
       const newLevel =
         randomVisitors > 1200 ? "High" : randomVisitors > 900 ? "Moderate" : "Low";
 
       const zoneStatuses = ["Open", "Moderate", "Full"];
-      const newZones = data.zones.map((z) => ({
-        ...z,
-        status: zoneStatuses[Math.floor(Math.random() * 3)],
-      }));
 
-      setData({
-        ...data,
-        liveVisitors: randomVisitors,
-        crowdLevel: newLevel,
-        temperature: 32 + Math.floor(Math.random() * 5),
-        lastUpdated: new Date().toLocaleTimeString(),
-        zones: newZones,
+      setData((prev) => {
+        const newZones = prev.zones.map((z) => ({
+          ...z,
+          status: zoneStatuses[Math.floor(Math.random() * 3)],
+        }));
+
+        return {
+          ...prev,
+          liveVisitors: randomVisitors,
+          crowdLevel: newLevel,
+          temperature: 32 + Math.floor(Math.random() * 5),
+          lastUpdated: new Date().toLocaleTimeString(),
+          zones: newZones,
+        };
       });
     }, 6000);
     return () => clearInterval(interval);

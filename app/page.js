@@ -60,7 +60,7 @@ export default function Home() {
             <p>{stats.waitTime}</p>
           </div>
           <div className="text-center">
-            <p className="font-bold">Today's Footfall</p>
+            <p className="font-bold">Today&apos;s Footfall</p>
             <p>{stats.footfall.toLocaleString()}</p>
           </div>
           <div className="text-center">
